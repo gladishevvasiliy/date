@@ -59,6 +59,10 @@ int main() {
 	cout << "isCorrectDate = " << isCorrectDate(2015, 2, 30) << endl;
 	cout << "isCorrectDate = " << isCorrectDate(2016, 2, 29) << endl;
 	cout << "isCorrectDate = " << isCorrectDate(1015, 2, 10) << endl;
+
+	/////////////////////////////////////// NEXT DAY ////////////////////////////
+	nextDay(int  year, int month, int day);
+
 	system("pause");
 	return 0;
 }
@@ -82,4 +86,19 @@ bool isCorrectDate(int  year, int month, int day) {
 	bool result;
 	result = (year >= 1901 && month >= 1 && month <= 12 && day >= 1 && day <= daysInMonth(year, month));
 	return result;
+}
+void nextDay(int  year, int month, int day) {
+	if (isCorrectDate(year, month, day)) {
+		if (day < daysInMonth(year, month))
+			day = day + 1;
+		else {
+			day = 1;
+			month = month + 1;
+		}
+		if (month == 13) {
+			month = 1;
+			year = year + 1;
+		}
+	}
+	else return 0;
 }
