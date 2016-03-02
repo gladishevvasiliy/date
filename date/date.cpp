@@ -61,7 +61,13 @@ int main() {
 	cout << "isCorrectDate = " << isCorrectDate(1015, 2, 10) << endl;
 
 	/////////////////////////////////////// NEXT DAY ////////////////////////////
-	nextDay(int  year, int month, int day);
+	cout << "nextDay = ";
+	nextDay(1016, 3, 2);
+	cout << endl;
+
+	cout << "nextDay = ";
+	nextDay(2016, 12, 31);
+	cout << endl;
 
 	system("pause");
 	return 0;
@@ -99,6 +105,8 @@ void nextDay(int  year, int month, int day) {
 			month = 1;
 			year = year + 1;
 		}
+		cout << year <<" "<< month << " " << day << endl;
 	}
-	else return 0;
+	else 
+		cout << "error" << endl;
 }
