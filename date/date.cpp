@@ -76,22 +76,28 @@ int main() {
 	cout << "date: ";
 	int nowYear, nowDay, nowMonth;
 	defineDate(2, &nowYear, &nowMonth, &nowDay);
-	cout << nowYear << "." << nowMonth << "." << nowDay << endl;
+	printDate(nowYear, nowMonth, nowDay);
+//	cout << nowYear << "." << nowMonth << "." << nowDay << endl;
 	///////////////////////////////////FUTURE DATE /////////////////////////////////////////
 	cout << "future date: ";
 	int futureYear, futureMonth, futureDay;
 	futureDate(3, 2016, 3, 2, &futureYear, &futureMonth, &futureDay);
-	cout << futureYear << "." << futureMonth << "." << futureDay << endl;
-
+//	cout <<  << "." << futureMonth << "." << futureDay << endl;
+	printDate(futureYear, futureMonth, futureMonth);
 	///////////////////////////////////PAST DATE/////////////////////////////////////////
 
 	cout << "past date: ";
 	int pastYear, pastMonth, pastDay;
 	pastDate(3, 2016, 3, 2, &pastYear, &pastMonth, &pastDay);
-	cout << pastYear << "." << pastMonth << "." << pastDay << endl;
+	printDate(pastYear, pastMonth, pastDay);
+
 	/////////////////////////////////countDaysBetweenTwoDates////////////////////////////
 
-	cout << "DaysBetweenTwoDates:" << countDaysBetweenTwoDates(2016, 1, 1, 2015, 1, 1);	
+	cout << "DaysBetweenTwoDates:" << countDaysBetweenTwoDates(2016, 1, 1, 2015, 1, 1) << endl;	
+
+	/////////////////////////////////compareDate////////////////////////////////////////
+
+	cout << "days > days 2? " << compareDate(2015, 12, 31, 2016, 2, 3);
 
 	system("pause");
 	return 0;
@@ -195,4 +201,13 @@ long countDaysBetweenTwoDates(int  year, int month, int day, int  year2, int mon
 	return(days - days2);
 }
 
+bool compareDate(int  year, int month, int day, int  year2, int month2, int day2) {
+	int days = countDays(year, month, day);
+	int days2 = countDays(year2, month2, day2);
+	if (days > days2) return true;
+	else return false;
+}
 
+void printDate(int  year, int month, int day){
+	cout << year << "." << month << "." << day << endl;
+}
