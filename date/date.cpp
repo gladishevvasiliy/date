@@ -1,6 +1,6 @@
 ﻿
 
-//#include "stdafx.h"
+#include "stdafx.h"
 #include <stdio.h>
 #include <tchar.h>
 #include "math.h"
@@ -77,11 +77,18 @@ int main() {
 	int nowYear, nowDay, nowMonth;
 	defineDate(2, &nowYear, &nowMonth, &nowDay);
 	cout << nowYear << "." << nowMonth << "." << nowDay << endl;
-	///////////////////////////////////
+	///////////////////////////////////FUTURE DATE /////////////////////////////////////////
 	cout << "future date: ";
 	int futureYear, futureMonth, futureDay;
 	futureDate(3, 2016, 3, 2, &futureYear, &futureMonth, &futureDay);
 	cout << futureYear << "." << futureMonth << "." << futureDay << endl;
+
+	///////////////////////////////////PAST DATE/////////////////////////////////////////
+
+	cout << "past date: ";
+	int pastYear, pastMonth, pastDay;
+	pastDate(3, 2016, 3, 2, &pastYear, &pastMonth, &pastDay);
+	cout << pastYear << "." << pastMonth << "." << pastDay << endl;
 
 	system("pause");
 	return 0;
@@ -89,10 +96,12 @@ int main() {
 bool isLeapYear(int  year) {
 	return  (year % 400 == 0 || year % 100 != 0 && year % 4 == 0);
 }
+
 int daysInYear(int  year) {
 	if (isLeapYear(year)) return 366;
 	else return 365;
 }
+
 int daysInMonth(int  year, int month) {
 	if (month == 0 || month == 8 || month == 9 || month == 11) return 30;
 	else
@@ -102,11 +111,13 @@ int daysInMonth(int  year, int month) {
 		else return 31;
 
 }
+
 bool isCorrectDate(int  year, int month, int day) {
 	bool result;
 	result = (year >= 1901 && month >= 1 && month <= 12 && day >= 1 && day <= daysInMonth(year, month));
 	return result;
 }
+
 void nextDay(int  year, int month, int day) {
 	if (isCorrectDate(year, month, day)) {
 		if (day < daysInMonth(year, month))
@@ -134,6 +145,7 @@ long countDays(int  year, int month, int day) {
 	days += day;
 	return days;
 }
+
 void defineDate(long days, int* year, int* month, int* day) {
 	int y = 1901;
 	while (days > daysInYear(y)) {
@@ -151,6 +163,7 @@ void defineDate(long days, int* year, int* month, int* day) {
 	*month = m;
 	*day = d;
 }
+
 void futureDate(int count, int  year, int month, int day, int* futureYear, int* futureMonth, int* futureDay) {
 	int days = countDays(year, month, day);
 	days += count;
@@ -160,4 +173,15 @@ void futureDate(int count, int  year, int month, int day, int* futureYear, int* 
 	*futureYear = y;
 	*futureMonth = m;
 	*futureDay = d;
+}
+
+void pastDate(int count, int  year, int month, int day, int* pastYear, int* pastMonth, int* pastDay) {
+	int days = countDays(year, month, day);
+	days -= count;
+	int y, m, d;
+	defineDate(days, &y, &m, &d);
+
+	*pastYear = y;
+	*pastMonth = m;
+	*pastDay = d;
 }
