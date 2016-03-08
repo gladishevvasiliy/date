@@ -89,6 +89,9 @@ int main() {
 	int pastYear, pastMonth, pastDay;
 	pastDate(3, 2016, 3, 2, &pastYear, &pastMonth, &pastDay);
 	cout << pastYear << "." << pastMonth << "." << pastDay << endl;
+	/////////////////////////////////countDaysBetweenTwoDates////////////////////////////
+
+	cout << "DaysBetweenTwoDates:" << countDaysBetweenTwoDates(2016, 1, 1, 2015, 1, 1);	
 
 	system("pause");
 	return 0;
@@ -185,3 +188,11 @@ void pastDate(int count, int  year, int month, int day, int* pastYear, int* past
 	*pastMonth = m;
 	*pastDay = d;
 }
+
+long countDaysBetweenTwoDates(int  year, int month, int day, int  year2, int month2, int day2) {
+	int days = countDays(year, month, day);
+	int days2 = countDays(year2, month2, day2);
+	return(days - days2);
+}
+
+
