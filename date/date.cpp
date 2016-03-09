@@ -1,6 +1,4 @@
-﻿
-
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <stdio.h>
 #include <tchar.h>
 #include "math.h"
@@ -46,13 +44,13 @@ int main() {
 	cout << endl;
 
 	///////////////////////////DAYS IN YEAR//////////////////////////
+	
 	cout << "days in year = " << daysInYear(year0) << endl;
 	cout << "days in year = " << daysInYear(year1) << endl;
 
 	///////////////////////////DAYS IN MOUNTH//////////////////////////
-	//cout << "daysInMonth = " << daysInMonth(year0, 5) << endl;
+
 	cout << "daysInMonth = " << daysInMonth(year0, 11) << endl;
-	//cout << "daysInMonth = " << daysInMonth(year1, 2) << endl;
 	cout << "daysInMonth = " << daysInMonth(year0, 2) << endl;
 
 	/////////////////////////////////////// IS CORRECT DATE ////////////////////////////
@@ -61,29 +59,29 @@ int main() {
 	cout << "isCorrectDate = " << isCorrectDate(1015, 2, 10) << endl;
 
 	/////////////////////////////////////// NEXT DAY ////////////////////////////
+
 	cout << "nextDay = ";
 	nextDay(1016, 3, 2);
 	cout << endl;
 
-	cout << "nextDay = ";
-	nextDay(2016, 12, 31);
-	cout << endl;
-
 	////////////////////////////////////////////COUNT DAYS ////////////////////////////
+
 	cout << "countDays = " << countDays(1901, 1, 7) << endl;
 
 	//////////////////////////////////defineDate////////////////////////
-	cout << "date: ";
+	
 	int nowYear, nowDay, nowMonth;
 	defineDate(2, &nowYear, &nowMonth, &nowDay);
+	cout << "date: ";
 	printDate(nowYear, nowMonth, nowDay);
-//	cout << nowYear << "." << nowMonth << "." << nowDay << endl;
+
 	///////////////////////////////////FUTURE DATE /////////////////////////////////////////
-	cout << "future date: ";
+
 	int futureYear, futureMonth, futureDay;
 	futureDate(3, 2016, 3, 2, &futureYear, &futureMonth, &futureDay);
-//	cout <<  << "." << futureMonth << "." << futureDay << endl;
+	cout << "future date: ";
 	printDate(futureYear, futureMonth, futureMonth);
+
 	///////////////////////////////////PAST DATE/////////////////////////////////////////
 
 	cout << "past date: ";
@@ -99,28 +97,13 @@ int main() {
 
 	cout << "days > days 2? " << compareDate(2015, 12, 31, 2016, 2, 3)<< endl;
 
-	////////////////////////////////swap//////////////////////////////////////////////
+	///////////////////////////////SORT/////////////////////////////////////////////
 	int const N = 4;
-	int d[N][3] ={	{12,2,2005},
-						{3,4,2010},
-						{2,10,2016},
-						{1,1,1998}	};
-
-	printArrayDate(d, N);
-	sort(d, N);
-	//int j = 2;
+	int d[N][3] = {{12,2,2005},{3,4,2010},{2,10,2016},{1,1,1998}};
+	printArrayDate(d, N); // output original array
 	
-	/*int d1 = d[j][0];
-	int m1 = d[j][1];
-	int y1 = d[j][2];
-	int d2 = d[j + 1][0];
-	int m2 = d[j + 1][1];
-	int y2 = d[j + 1][2];
-	if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
-		swap(d, j, j++);
-	}*/
-	cout << endl;
-	printArrayDate(d, N);
+	sort(d, N);	
+	printArrayDate(d, N);// output sorted array
 
 	system("pause");
 	return 0;
@@ -233,6 +216,7 @@ bool compareDate(int  year, int month, int day, int  year2, int month2, int day2
 
 void printDate(int  year, int month, int day){
 	cout << year << "." << month << "." << day << endl;
+	cout << endl;
 }
 
 void swap(int dates[][3], int k, int p) {
@@ -258,6 +242,7 @@ void sort(int d[][3], int countDate) {
 		}
 	}
 }
+
 void printArrayDate(int dates[][3], int countDate) {
 	for (int i = 0; i < countDate;i++) {
 		for (int j = 0; j < 3; j++) {
