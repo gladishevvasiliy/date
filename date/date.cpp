@@ -116,18 +116,13 @@ int main() {
 	int d2 = d[j + 1][0];
 	int m2 = d[j + 1][1];
 	int y2 = d[j + 1][2];
-	//if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
-		int k = j;
-		int p = j+1;
-		for (int i = 0; i < 3;i++) {
-			int tmp = d[k][i];
-			d[k][i] = d[p][i];
-			d[p][i] = tmp;
-		}
-//	}
+	if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
+		//int k = j;
+		//int p = j+1;
+		swap(d, j, j++);
+	}
 	cout << endl;
 	printArrayDate(d, N);
-		//swap(dates, k, p) {}
 
 	system("pause");
 	return 0;
