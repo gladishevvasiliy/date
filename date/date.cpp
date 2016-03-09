@@ -97,7 +97,37 @@ int main() {
 
 	/////////////////////////////////compareDate////////////////////////////////////////
 
-	cout << "days > days 2? " << compareDate(2015, 12, 31, 2016, 2, 3);
+	cout << "days > days 2? " << compareDate(2015, 12, 31, 2016, 2, 3)<< endl;
+
+	////////////////////////////////swap//////////////////////////////////////////////
+	int const N = 4;
+	int d[N][3] ={	{12,2,2005},
+						{3,4,2010},
+						{2,10,2016},
+						{1,1,1998}	};
+
+	printArrayDate(d, N);
+	
+	int j = 2;
+	
+	int d1 = d[j][0];
+	int m1 = d[j][1];
+	int y1 = d[j][2];
+	int d2 = d[j + 1][0];
+	int m2 = d[j + 1][1];
+	int y2 = d[j + 1][2];
+	//if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
+		int k = j;
+		int p = j+1;
+		for (int i = 0; i < 3;i++) {
+			int tmp = d[k][i];
+			d[k][i] = d[p][i];
+			d[p][i] = tmp;
+		}
+//	}
+	cout << endl;
+	printArrayDate(d, N);
+		//swap(dates, k, p) {}
 
 	system("pause");
 	return 0;
@@ -210,4 +240,35 @@ bool compareDate(int  year, int month, int day, int  year2, int month2, int day2
 
 void printDate(int  year, int month, int day){
 	cout << year << "." << month << "." << day << endl;
+}
+
+void swap(int dates[][3], int k, int p) {
+	for (int i = 0; i < 3;i++) {
+		int tmp = dates[k][i];
+		dates[k][i] = dates[p][i];
+		dates[p][i] = tmp;
+	}
+}
+/*
+void sort(int d[][3], int countDate) {
+	for (int i = 0; i < countDate; i++) {
+		for (int j = 0; j < countDate - i;j++) {
+		int d1 = d[j][0];
+		int m1 = d[j][1];
+		int y1 = d[j][2];
+		int d2 = d[j+1][0];
+		int m2 = d[j+1][1];
+		int y2 = d[j+1][2];
+				if (compareDate(y1, m1, d1, y2, m2, d2)>0)
+					
+		}
+	}
+}*/
+void printArrayDate(int dates[][3], int countDate) {
+	for (int i = 0; i < countDate;i++) {
+		for (int j = 0; j < 3; j++) {
+			cout << dates[i][j] << ".";
+		}
+		cout << endl;
+	}
 }
