@@ -107,20 +107,18 @@ int main() {
 						{1,1,1998}	};
 
 	printArrayDate(d, N);
+	sort(d, N);
+	//int j = 2;
 	
-	int j = 2;
-	
-	int d1 = d[j][0];
+	/*int d1 = d[j][0];
 	int m1 = d[j][1];
 	int y1 = d[j][2];
 	int d2 = d[j + 1][0];
 	int m2 = d[j + 1][1];
 	int y2 = d[j + 1][2];
 	if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
-		//int k = j;
-		//int p = j+1;
 		swap(d, j, j++);
-	}
+	}*/
 	cout << endl;
 	printArrayDate(d, N);
 
@@ -244,21 +242,22 @@ void swap(int dates[][3], int k, int p) {
 		dates[p][i] = tmp;
 	}
 }
-/*
+
 void sort(int d[][3], int countDate) {
 	for (int i = 0; i < countDate; i++) {
 		for (int j = 0; j < countDate - i;j++) {
-		int d1 = d[j][0];
-		int m1 = d[j][1];
-		int y1 = d[j][2];
-		int d2 = d[j+1][0];
-		int m2 = d[j+1][1];
-		int y2 = d[j+1][2];
-				if (compareDate(y1, m1, d1, y2, m2, d2)>0)
-					
+			int d1 = d[j][0];
+			int m1 = d[j][1];
+			int y1 = d[j][2];
+			int d2 = d[j + 1][0];
+			int m2 = d[j + 1][1];
+			int y2 = d[j + 1][2];
+			if (compareDate(y1, m1, d1, y2, m2, d2) > 0) {
+				swap(d, j, j++);
+			}
 		}
 	}
-}*/
+}
 void printArrayDate(int dates[][3], int countDate) {
 	for (int i = 0; i < countDate;i++) {
 		for (int j = 0; j < 3; j++) {
