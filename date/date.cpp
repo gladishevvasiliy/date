@@ -57,6 +57,9 @@ int main() {
 	cout << "isCorrectDate = " << isCorrectDate(2015, 2, 30) << endl;
 	cout << "isCorrectDate = " << isCorrectDate(2016, 2, 29) << endl;
 	cout << "isCorrectDate = " << isCorrectDate(1015, 2, 10) << endl;
+	cout << "isCorrectDate = " << isCorrectDate(1015, 52, 10) << endl;
+	cout << "isCorrectDate = " << isCorrectDate(1015, 2, 20) << endl;
+	
 
 	/////////////////////////////////////// NEXT DAY ////////////////////////////
 
